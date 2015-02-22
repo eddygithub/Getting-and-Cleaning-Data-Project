@@ -3,6 +3,10 @@ if(!require("data.table")){
   install.packages("data.table")
 }
 
+if(!require("reshape2")){
+  install.packages("reshape2")
+}
+
 require("data.table")
 # 1.  Merges the training and the test sets to create one data set.
 # If the zip file is not already downloaded 
