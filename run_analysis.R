@@ -27,9 +27,8 @@ yTrain[,2] <- vector()
 names(yTrain) <- c("Activity_ID", "Activity_Label")
 names(xTrain) <- features
 
-trainData <- cbind(subjectTrain, yTrain, xTrain)
 
-# Red test data
+# Red test datat
 subjectTest <- read.table("./dataset/UCI HAR Dataset/test/subject_test.txt")
 xTest <- read.table("./dataset/UCI HAR Dataset/test/X_test.txt")
 yTest <- read.table("./dataset/UCI HAR Dataset/test/y_test.txt")
@@ -37,14 +36,14 @@ yTest[,2] <- vector()
 names(yTest) <- c("Activity_ID", "Activity_Label")
 names(xTest) <- features
 
-testData <- cbind(subjectTest, yTest, xTest)
-
-workingDataSet <- rbind(testData, trainData)
-
 #  2.	Extracts only the measurements on the mean and standard deviation for each measurement.
-
 mean_std_features <- which(grepl("mean|std", features))
-workingDataSet <- workingDataSet[, mean_std_features]
+xTrain <- xTrain[,mean_std_features]
+trainData <- cbind(subjectTrain, yTrain, xTrain)
+
+xTest <- xTest[,mean_std_features]
+testData <- cbind(subjectTest, yTest, xTest)
+workingDataSet <- rbind(testData, trainData)
 
 #  3.	Uses descriptive activity names to name the activities in the data set
 activity_labels <- read.table("./dataset/UCI HAR Dataset/activity_labels.txt")[,2]
