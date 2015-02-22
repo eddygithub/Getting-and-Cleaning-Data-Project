@@ -4,7 +4,7 @@
   An identifier of the subject who carried out the experiment
 
 ## Activity_Label
-  ### Activity Name
+### Activity Name
   *  WALKING
   *  WALKING_UPSTAIRS
   *  WALKING_DOWNSTAIRS
